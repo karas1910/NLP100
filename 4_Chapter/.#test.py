@@ -1,1 +1,0 @@
-kumac@wlan1824.u-aizu.ac.jp.13721
