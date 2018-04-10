@@ -5,7 +5,7 @@ if __name__ == '__main__':
 
         for s in sentenceL:
             tmpL = []
-            x  = s[:-1].split('\n')
+            x = s[:-1].split('\n')
             for l in x:
                 surface, tail = l.split('\t')
                 sp = tail.split(',')
