@@ -9,10 +9,14 @@ def cipher(data):
             ans += chr(219 - ord(s))
         else:
             ans += s
-    print(ans)
+    return ans
 
 
 
 if __name__ == '__main__':
     s = input()
-    cipher(s)
+    result1 = cipher(s)
+    mm.chkprint(result1)
+    result2 = cipher(result1)
+    mm.chkprint(result2)
+
