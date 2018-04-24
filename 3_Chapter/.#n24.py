@@ -1,1 +1,0 @@
-kumac@wlan-napt-001.u-aizu.ac.jp.11534
