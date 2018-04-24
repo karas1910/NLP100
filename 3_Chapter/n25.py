@@ -1,16 +1,20 @@
 import re
 
 
-if __name__ == '__main__':
-    f = open('./jawiki-country.txt').read()
-    pattern = re.compile(r"{{基礎情報 国\n(.*)\n}}", re.S)
-    matchOB = '\n'.join(pattern.findall(f))
-    pattern = re.compile(r"\|(.*) = (.*)")
-    ans = pattern.findall(matchOB)
-
+def get_basic_info(target):
     dict = {}
-    for i in ans:
-        print(i[0] + ' = ' + i[1])
-        dict[i[0]] = i[1]
-    print(dict)
+    p1 = re.compile('{{基礎情報 国\n(.*)\n}}\n', re.S)
+    p2 = re.compile('\n?\|(.*) = (.*)')
+    matchDB = p1.findall(target)[0].split('\n')
 
+    for l in matchDB:
+        tmp = p2.match(l)
+        if tmp:
+            dict[tmp.group(1)] = tmp.group(2)
+    return dict
+
+
+if __name__ == '__main__':
+    target = open('./jawiki-country.txt').read()
+    result = get_basic_info(target)
+    [print('{0} = {1}'.format(k, v)) for k, v in result.items()]
