@@ -1,10 +1,12 @@
 import re
-from n23 import sec_level
 
 
+def get_media_file(target):
+    p = re.compile('(.*)ファイル:(.*\....g?)(.*)')
+    return [m.group(2) for m in (p.match(l) for l in target) if m]
 
-target = open('./jawiki-country.txt').readlines()
-result = sec_level(target)
-[print('sec = {0}, Lv = {1}'.format(s.replace('\n', ''), n)) for s, n in (l for l in result)]
 
-
+if __name__ == '__main__':
+    target = open('./jawiki-country.txt').readlines()
+    result = get_media_file(target)
+    [print(l) for l in result]
