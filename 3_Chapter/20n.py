@@ -9,4 +9,3 @@ if __name__ == '__main__':
         data = json.loads(i)
         if data['title'] == 'イギリス':
             w.write(data['text'])
-
