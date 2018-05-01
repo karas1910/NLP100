@@ -5,9 +5,12 @@ from n27 import remove_link_simbol
 
 
 def remove_markups(dict):
-    p1 = re.compile('\{\{(.*\||)(.*)\}\}')
+    p1 = re.compile('\{\{(.*\||)(.*)\}\}(.*)')
+    p2 = re.compile('<ref(.*)?\/?>(.*)?(<\/ref>)?')
     for k, v in dict.items():
         dict[k] = p1.sub(r'\2', dict[k])
+        dict[k] = p2.sub('', dict[k])
+        dict[k] = dict[k].replace('<br />', '')
     return dict
 
 
