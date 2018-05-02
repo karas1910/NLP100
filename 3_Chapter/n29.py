@@ -1,4 +1,3 @@
-import urllib.request, urllib.parse
 from n25 import get_basic_info
 from n26 import remove_simbol
 from n27 import remove_link_simbol
@@ -15,7 +14,6 @@ def get_url(dc):
     url = url_base + url_prefix + url_file + url_suffix
 
     data = requests.get(url)
-    print(data.text)
     return re.search(r'"url":"(.+?)"', data.text).group(1)
 
 
