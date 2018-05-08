@@ -10,7 +10,8 @@ if __name__ == '__main__':
         sentenceL = [s for s in f.read().split('EOS\n') if s != '']
         target = sentence_mapping(sentenceL)
         result, num = get_feq_word(target, num)
-
+        for word, cnt in result:
+            print('word: {0}, count: {1}'.format(word, cnt))
         rank = len(set([tmp[1] for tmp in result]))
         x = range(1, rank+1)
         feq = np.array(list(set([ch[1] for ch in result])))
