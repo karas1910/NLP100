@@ -4,14 +4,21 @@
 
 
 import sys
+import re
 from n50 import create_sentence_list
 
 
 def get_word_list(sentence_list):
     word_list = []
+    pattern = re.compile('[a-zA-Z]')
     for s in sentence_list:
-        tmp = s.split()
-        word_list.append(tmp)
+        tmp_wordlist = s.split()
+        for i, word in enumerate(tmp_wordlist):
+            for j, char in enumerate(word):
+                if re.match(pattern, char) is None:
+                    shapw = tmp_wordlist[i].replace(char, '')
+                    tmp_wordlist[i] = shapw
+        word_list.append(tmp_wordlist)
     return word_list
 
 
