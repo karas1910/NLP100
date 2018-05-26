@@ -1,5 +1,5 @@
 #
-# usage: python n51.py {file name}
+# usage: python n50.py {file name}
 #
 
 
