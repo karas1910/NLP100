@@ -8,16 +8,20 @@ import re
 from n50 import create_sentence_list
 
 
+def remove_simbol(word):
+    pattern = re.compile('[a-zA-Z]')
+    for char in word:
+        if re.match(pattern, char) is None:
+            word = word.replace(char, '')
+    return word
+
+
 def get_word_list(sentence_list):
     word_list = []
-    pattern = re.compile('[a-zA-Z]')
     for s in sentence_list:
         tmp_wordlist = s.split()
         for i, word in enumerate(tmp_wordlist):
-            for j, char in enumerate(word):
-                if re.match(pattern, char) is None:
-                    shapw = tmp_wordlist[i].replace(char, '')
-                    tmp_wordlist[i] = shapw
+            tmp_wordlist[i] = remove_simbol(word)
         word_list.append(tmp_wordlist)
     return word_list
 
