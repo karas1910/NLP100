@@ -1,5 +1,5 @@
 #
-# usage: python n60 {file name}
+# usage: python n60.py {file name}
 #
 
 
