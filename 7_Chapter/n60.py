@@ -20,3 +20,5 @@ if __name__ == '__main__':
         aid = str(f_dict.get('id'))
         if key is not None and value is not None and aid is not None:
             my_db.put((key+'\s'+aid).encode(), value.encode())
+
+    my_db.close()
