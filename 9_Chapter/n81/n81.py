@@ -8,6 +8,7 @@ import sys
 
 def change_country_name(corpus, countries):
     with open(countries) as ctr:
+        ctr = ctr.readlines()
         with open(corpus) as cps:
             with open('n81-corpus.txt', 'w') as n81_corpus:
                 for cp in cps:
